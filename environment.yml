@@ -1,0 +1,22 @@
+name: cpc37
+channels:
+  - pytorch
+  - anaconda
+  - conda-forge
+  - defaults
+dependencies:
+  - pytorch=1.10
+  - torchvision
+  - cudatoolkit=11.1
+  - psutil
+  - pip
+  - openblas-devel
+  - tqdm
+  - nose
+  - cython
+  - pysoundfile
+  - scipy
+  - pip:
+    - progressbar2
+    - matplotlib
+    - torchaudio
