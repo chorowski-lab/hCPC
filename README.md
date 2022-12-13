@@ -38,7 +38,7 @@ python cpc/train.py --pathDB $PATH_AUDIO_FILES --pathTrain $TRAINING_SET --pathV
 
 ```bash 
 python cpc/train.py --pathDB $PATH_AUDIO_FILES --pathTrain $TRAINING_SET --pathVal $VAL_SET --file_extension $EXTENSION
---pathCheckpoint $PATH_CHECKPOINT_DIR --normMode layerNorm --dropout --n_process_loader 1 --batchSizeGPU 32 --nPredicts 1 --limitNegsInBatch 8 --nEpoch 50 --nGPU 2 --schedulerRamp 10 --rnnMode none --arMode no_ar --negativeSamplingExt 1 --nPredicts 1 --samplingType samesequence --linearOutput --normalizeCPCScore --multiLevel --segmentationMode cosineDissimilarity 
+--pathCheckpoint $PATH_CHECKPOINT_DIR --normMode layerNorm --dropout --n_process_loader 1 --batchSizeGPU 32 --nPredicts 1 --limitNegsInBatch 8 --nEpoch 50 --nGPU 2 --schedulerRamp 10 --rnnMode none --arMode no_ar --negativeSamplingExt 1 --nPredicts 1 --samplingType samesequence --linearOutput --normalizeCPCScore --multiLevel --segmentationMode cosineDissimilarity --rnnModeSegment none
 ```
 
 * mACPC:
