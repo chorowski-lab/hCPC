@@ -18,30 +18,37 @@ We suggest to train the model either on [Librispeech](http://www.openslr.org/12/
 
 ## How to run a session
 
-To run with our setup:
+To run a training session:
 
-* A CPC training session:
+* CPC:
 
 ```bash 
 python cpc/train.py --pathDB $PATH_AUDIO_FILES --pathTrain $TRAINING_SET --pathVal $VAL_SET --file_extension $EXTENSION
 --pathCheckpoint $PATH_CHECKPOINT_DIR --normMode layerNorm --dropout --n_process_loader 1 --batchSizeGPU 32 --nPredicts 12 --limitNegsInBatch 8 --nEpoch 50 --nGPU 2 --nLevelsGRU 2 --schedulerRamp 10 --normalizeCPCScore
 ```
 
-* An ACPC session:
+* ACPC:
 
 ```bash 
 python cpc/train.py --pathDB $PATH_AUDIO_FILES --pathTrain $TRAINING_SET --pathVal $VAL_SET --file_extension $EXTENSION
 --pathCheckpoint $PATH_CHECKPOINT_DIR --normMode layerNorm --dropout --n_process_loader 1 --batchSizeGPU 32 --CPCCTC --nPredicts 6 --CPCCTCNumMatched 12 --limitNegsInBatch 8 --nEpoch 50 --nGPU 2 --nLevelsGRU 2 --schedulerRamp 10 --normalizeCPCScore
 ```
 
-* An mACPC session:
+* SCPC:
 
 ```bash 
 python cpc/train.py --pathDB $PATH_AUDIO_FILES --pathTrain $TRAINING_SET --pathVal $VAL_SET --file_extension $EXTENSION
---pathCheckpoint $PATH_CHECKPOINT_DIR --normMode layerNorm --dropout --n_process_loader 1 --batchSizeGPU 32 --CPCCTC --nPredicts 6 --CPCCTCNumMatched 12 --limitNegsInBatch 8 --nEpoch 50 --nGPU 2 --nLevelsGRU 2 --schedulerRamp 10 --normalizeCPCScore --multiLevel --segmentationMode cosineDissimilarity --nPredictsSegment 2 --CPCCTCNumMatchedSegment 4 --negativeSamplingExtSegment 1
+--pathCheckpoint $PATH_CHECKPOINT_DIR --normMode layerNorm --dropout --n_process_loader 1 --batchSizeGPU 32 --nPredicts 1 --limitNegsInBatch 8 --nEpoch 50 --nGPU 2 --schedulerRamp 10 --rnnMode none --arMode no_ar --negativeSamplingExt 1 --nPredicts 1 --samplingType samesequence --linearOutput --normalizeCPCScore --multiLevel --segmentationMode cosineDissimilarity 
 ```
 
-* A multi-level model as described in _Variable-rate hierarchical CPC leads to acoustic unit discovery in speech_:
+* mACPC:
+
+```bash 
+python cpc/train.py --pathDB $PATH_AUDIO_FILES --pathTrain $TRAINING_SET --pathVal $VAL_SET --file_extension $EXTENSION
+--pathCheckpoint $PATH_CHECKPOINT_DIR --normMode layerNorm --dropout --n_process_loader 1 --batchSizeGPU 32 --CPCCTC --nPredicts 6 --CPCCTCNumMatched 12 --limitNegsInBatch 8 --nEpoch 50 --nGPU 2 --nLevelsGRU 2 --schedulerRamp 10 --normalizeCPCScore --multiLevel --segmentationMode cosineDissimilarity --nPredictsSegment 2 --CPCCTCNumMatchedSegment 4
+```
+
+* As in [Variable-rate hierarchical CPC leads to acoustic unit discovery in speech](https://arxiv.org/abs/2206.02211):
 
 ```bash 
 python cpc/train.py --pathDB $PATH_AUDIO_FILES --pathTrain $TRAINING_SET --pathVal $VAL_SET --file_extension $EXTENSION

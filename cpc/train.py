@@ -90,7 +90,8 @@ def getCriterion(args, downsampling, nSpeakers, nPhones):
                                                           args.normalizeCPCScore,
                                                           targetQuantizerSegment,
                                                           args.adjacentNegatives,
-                                                          args.rlSetup)
+                                                          args.rlSetup,
+                                                          args.rnnModeSegment)
             else:
                 cpcCriterion = cr.CPCUnsupersivedCriterion(args.nPredicts,
                                                         args.hiddenGar,

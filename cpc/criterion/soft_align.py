@@ -543,7 +543,8 @@ class MultiLevelCriterion(BaseCriterion):
                  normalizeScore=False,
                  targetQuantizer=None,
                  adjacentNegatives=False,
-                 rlSetup='vanillaReinforce'):
+                 rlSetup='vanillaReinforce',
+                 rnnMode='transformer'):
         super(MultiLevelCriterion, self).__init__()
 
         self.frameLevelCriterion = frameLevelCriterion
@@ -555,7 +556,7 @@ class MultiLevelCriterion(BaseCriterion):
                 negativeSamplingExt,
                 sizeInputSeq=sizeInputSeq,
                 normalizeScore=normalizeScore,
-                rnnMode='transformer',
+                rnnMode=rnnMode,
                 targetQuantizer=targetQuantizer,
                 adjacentNegatives=adjacentNegatives,
                 rlSetup=rlSetup

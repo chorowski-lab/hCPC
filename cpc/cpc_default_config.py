@@ -146,6 +146,10 @@ def set_default_cpc_config(parser):
                        choices=['transformer', 'RNN', 'LSTM', 'linear',
                                 'ffd', 'conv4', 'conv8', 'conv12', 'none'],
                        help="Architecture to use for the prediction network")
+    group.add_argument('--rnnModeSegment', type=str, default='transformer',
+                       choices=['transformer', 'RNN', 'LSTM', 'linear',
+                                'ffd', 'conv4', 'conv8', 'conv12', 'none'],
+                       help="Architecture to use for the prediction network at segment level")
     group.add_argument('--dropout', action='store_true',
                        help="Add a dropout layer at the output of the "
                        "prediction network.")
