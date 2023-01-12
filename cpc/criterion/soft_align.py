@@ -1,7 +1,7 @@
 import torch
 from torch import autograd, nn
 import torch.nn.functional as F
-from zmq import device
+# from zmq import device
 
 from .criterion import BaseCriterion, EqualizedConv1d, FFNetwork, ShiftedConv
 from ..model import RobustKMeansQuantizer
@@ -336,7 +336,7 @@ class CPCUnsupersivedCriterion(BaseCriterion):
             encodedData = torch.flip(encodedData, [1])
             cFeature = torch.flip(cFeature, [1])
         
-        seqSize = torch.maximum(seqSize, torch.ones_like(seqSize) * (self.margin + 1))
+        seqSize = torch.maximum(seqSize, torch.ones_like(seqSize) * (self.margin + 1)).to(cFeature.device)
         windowSizes = seqSize - self.margin
 
         if self.normalize_enc:

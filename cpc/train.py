@@ -23,7 +23,7 @@ import cpc.feature_loader as fl
 import cpc.eval.linear_separability as linsep
 from cpc.cpc_default_config import set_default_cpc_config
 from cpc.dataset import AudioBatchData, findAllSeqs, filterSeqs, parseSeqLabels
-import cpc.stats.stat_utils as statutil
+# import cpc.stats.stat_utils as statutil
 import itertools
 from torch.utils.tensorboard import SummaryWriter
 from cpc.utils.misc import Globals
@@ -684,10 +684,10 @@ def main(args):
         print("Capture dataset loaded")
         print("")
 
-        if args.captureSetStats:
-            captureSetStatsCollector = statutil.constructStatCollectorFromSpecs(args.captureSetStats)
-        else:
-            captureSetStatsCollector = None
+        # if args.captureSetStats:
+            # captureSetStatsCollector = statutil.constructStatCollectorFromSpecs(args.captureSetStats)
+        # else:
+        captureSetStatsCollector = None
     else:
         captureDataset = None
         captureSetStatsCollector = None
